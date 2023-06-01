@@ -1,0 +1,1338 @@
+1.write a python programme to find distance between two coordinate points (x1,y1),(x2,y2)
+
+
+code:
+
+
+x1=eval(input("Enter a number for x1:"))
+y1=eval(input("Enter a number for y1:"))
+x2=eval(input("Enter a number for x2:"))
+y2=eval(input("Enter a number for y2:"))
+
+distance=(((x2-x1)**2+(y2-y1)**2)**0.5)
+if x1==x2 and y1==y2:
+    print("The distance between the 2 coordinate points",(x1,y1),"and",(x2,y2),"is Zero(0)")
+
+else:
+    print("The distance between the 2 coordinate points",(x1,y1),"and",(x2,y2),"is",distance)
+
+
+output:
+
+Enter a number for x1:
+3
+Enter a number for y1:
+4
+Enter a number for x2:
+3
+Enter a number for y2:
+7
+The distance between the 2 coordinate points (3, 4) and (3, 7) is 3.0
+
+
+** Process exited - Return Code: 0 **
+
+
+
+
+2.write a python program to find the grade according to marks scored in different sujects.
+
+
+code:
+
+
+math=eval(input("enter the marks secured by the canditate in math:"))
+science=eval(input("enter the marks secured by the canditate in science:"))
+english=eval(input("enter the marks secured by the canditate in english:"))
+history=eval(input("enter the marks secured by the canditate in history:"))
+economics=eval(input("enter the marks secured by the canditate in economics:"))
+hindi=eval(input("enter the marks secured by the canditate in hindi:"))
+result=(math+science+english+history+economics+hindi)/6
+print("The percentage secured by a canditate is:",result)
+if result>90:
+    print("Grade A")
+elif result>=80 and result<90:
+    print("Grade B")
+elif result>=70 and result<80:
+    print("Grade C")
+elif result>=60 and result<70:
+    print("Grade D")
+elif result>=50 and result<60:
+    print("Grade E")
+elif result<50:
+    print("Grade F")
+
+output:
+
+enter the marks secured by the canditate in math:
+98
+enter the marks secured by the canditate in science:
+76
+enter the marks secured by the canditate in english:
+85
+enter the marks secured by the canditate in history:
+99
+enter the marks secured by the canditate in economics:
+56
+enter the marks secured by the canditate in hindi:
+73
+The percentage secured by a canditate is: 81.16666666666667
+Grade B
+
+
+** Process exited - Return Code: 0 **
+
+
+3. Write a python program to find maximum between three numbers.
+
+
+Code:
+
+a=eval(input("Enter a number:"))
+b=eval(input("Enter a number:"))
+c=eval(input("Enter a number:"))
+
+if a>b and a>c:
+   print("The maximum number among the 3 numbers is:",a)
+elif b>a and b>c:
+   print("The maximum number among the 3 numbers is:",b)
+else:
+   print("The maximum number among the 3 numbers is:",c)
+
+
+output:
+
+Enter a number:
+34
+Enter a number:
+12
+Enter a number:
+71
+The maximum number among the 3 numbers is: 71
+
+
+** Process exited - Return Code: 0 **
+
+
+
+4. Write a program to input angles of a triangle and check whether triangle is valid or not. Also ,validate the angles entered by the user.
+  (Sum of the three angles of triangle is 180)
+
+ 
+ code:
+
+A=eval(input("Enter the angle 'A'of the triangle:"))
+B=eval(input("Enter the angle 'B'of the triangle:"))
+C=eval(input("Enter the angle 'C'of the triangle:"))
+
+sum_ofangles=A+B+C 
+
+if((sum_ofangles==180)and(A!=0 and B!=0 and C!=0)and(A<90 and B<90 and C<90)):
+    print("The Triangle is VALID,since the sum of the angles is:",sum_ofangles)
+    print("It is an Acute angled triangle")
+elif((sum_ofangles==180)and(A!=0 and B!=0 and C!=0)and(A==90 or B==90 or C==90)):
+    print("The Triangle is VALID,since the sum of the angles is:",sum_ofangles)
+    print("It is a Right angled triangle")
+elif((sum_ofangles==180)and(A!=0 and B!=0 and C!=0)and(A>90 or B>90 and C>90)):
+    print("The Triangle is VALID,since the sum of the angles is:",sum_ofangles)
+    print("It is an Obtuse angled triangle")
+else:
+    print("The Triangle is INVALID,since the sum_ofangles is:",sum_ofangles)
+
+
+output:
+
+Enter the angle 'A'of the triangle:
+120
+Enter the angle 'B'of the triangle:
+30
+Enter the angle 'C'of the triangle:
+30
+The Triangle is VALID,since the sum of the angles is: 180
+It is an Obtuse angled triangle
+
+
+** Process exited - Return Code: 0 **
+
+
+5. Write a python program to swap two numbers using.                        
+ code:                                                                    
+
+ A=eval(input("Enter a number for 'A':"))                                         
+B=eval(input("Enter a number for 'B':"))
+
+temp=A 
+A=B 
+B=temp 
+
+print("The value of 'A' after swapping:",A)
+print("The value of 'B' after swapping:",B)
+
+
+
+output:
+
+
+Enter a number for 'A':
+56
+Enter a number for 'B':
+33
+The value of 'A' after swapping: 33
+The value of 'B' after swapping: 56
+
+
+** Process exited - Return Code: 0 **
+
+
+5.1. Write a python program to swap two numbers without using temporary variable.
+
+
+code:
+
+A=eval(input("Enter a number for 'A':"))
+B=eval(input("Enter a number for 'B':"))
+
+A,B=B,A
+
+print("The value of 'A' after swapping:",A)
+print("The value of 'B' after swapping:",B)
+
+
+
+output:
+
+
+Enter a number for 'A':
+33
+Enter a number for 'B':
+66
+The value of 'A' after swapping: 66
+The value of 'B' after swapping: 33
+
+
+** Process exited - Return Code: 0 **
+
+
+
+15.
+
+N=eval(input("Enter a number: "))
+sum=0
+for i in range(2,N+1):
+    sum+= 1/i
+print("The sum of the series is: ",round(sum,3))
+
+
+output:
+
+Enter a number: 
+4
+The sum of the series is:  1.083
+
+
+** Process exited - Return Code: 0 **
+
+
+16.
+
+
+sum=0
+n=1 
+while n!=0:
+    n=eval(input("Enter a number: "))
+    sum+=n 
+print(sum)
+
+
+output:
+
+
+Enter a number: 
+3
+Enter a number: 
+4
+Enter a number: 
+5
+Enter a number: 
+0
+12
+
+
+** Process exited - Return Code: 0 **
+
+
+17.
+
+print("The numbers are: ")
+for i in range(1,1000):
+    if i%2 !=0 and i%3 !=0 and i%5 !=0 and i%7 !=0 and i%11 !=0 and i%13 !=0 and i%17 !=0 and i%19 !=0:
+        print(i,end=" ")
+
+output:
+
+The numbers are: 
+1 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281 283 293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397 401 409 419 421 431 433 439 443 449 457 461 463 467 479 487 491 499 503 509 521 523 529 541 547 557 563 569 571 577 587 593 599 601 607 613 617 619 631 641 643 647 653 659 661 667 673 677 683 691 701 709 713 719 727 733 739 743 751 757 761 769 773 787 797 809 811 821 823 827 829 839 841 851 853 857 859 863 877 881 883 887 899 907 911 919 929 937 941 943 947 953 961 967 971 977 983 989 991 997 
+
+** Process exited - Return Code: 0 **
+
+
+18.
+
+a=eval(input("Enter 1st number: "))
+b=eval(input("Enter 2nd number: "))
+HCF=1 
+for i in range(1,min(a,b)):
+    if a%i==0 and b%i==0:
+        HCF=i 
+print("HCF of", a,"and", b," is: ",HCF)
+
+
+output:
+
+
+Enter 1st number: 
+8
+Enter 2nd number: 
+12
+HCF of 8 and 12  is:  4
+
+
+** Process exited - Return Code: 0 **
+
+
+
+19.
+
+a=eval(input("Enter number: "))
+power = len(str(a))
+sum=0 
+b = a
+while b>0:
+    digit = b%10
+    sum+=digit**power
+    b//=10
+    
+if a==sum:
+    print(a," is an Armstrong number")
+else:
+    print(a," is not an Armstrong number")
+
+
+output:
+
+
+Enter number: 
+153
+153  is an Armstrong number
+
+
+** Process exited - Return Code: 0 **
+
+
+21.
+
+a=eval(input("Enter a number: "))
+b=eval(input("Enter a number: "))
+for i in range(a,b+1):
+    for j in range(2,i):
+        if i%j==0:
+            break
+    else:
+        print(i,end=" ")
+
+
+output:
+
+Enter a number: 7
+Enter a number: 20
+7 11 13 17 19
+
+22.
+
+n=eval(input("Enter a number: "))
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print("*",end=" ")
+    print()
+for i in range(1,n+1):
+    for k in range(1,n+1-i):
+        print("*",end=" ")
+    print()
+
+
+output:
+
+Enter a number: 5
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * *
+* * *
+* *
+*
+
+
+
+
+
+23.
+
+
+n=eval(input("ENter a number: "))
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if (i+j)%2==0:
+            print("1\t",end=" ")
+        else:
+            print("0\t",end=" ")
+    print()
+
+
+output:
+
+ENter a number: 
+4
+1	 0	 1	 0	 
+0	 1	 0	 1	 
+1	 0	 1	 0	 
+0	 1	 0	 1	 
+
+
+** Process exited - Return Code: 0 **
+
+
+
+24.
+
+def odd_sum(n):
+    sum=0
+    for i in range(2,n):
+        if i%2 !=0:
+            sum+=i
+    return sum
+a=eval(input("Enter a number: "))
+r=odd_sum(a)
+print(r)
+
+
+output:
+
+Enter a number: 10
+24
+
+
+25.
+
+def palin(n):
+    rev=0
+    while n!=0:
+        d=n%10
+        rev=rev*10+d
+        n//=10
+    return rev
+
+a=eval(input("Enter a number: "))
+r=palin(a)
+
+
+if a==r:
+        print(a," is palindrome")
+else:
+        print(a," is not palindrome")
+
+
+output:
+
+Enter a number: 121
+121  is palindrome
+
+
+26.
+
+def area_cir(r):
+    area = 3.14*r*r
+    return area
+
+a=eval(input("Enter a number: "))
+b=area_cir(a)
+print(b)
+
+
+output:
+
+Enter a number: 2
+12.56
+
+
+27.
+
+def perfect_num(n):
+    sum=0
+    for i in range(1,n):
+        if n%i==0:
+            sum+=i
+    return sum
+a=eval(input("Enter a number: "))
+r=perfect_num(a)
+
+if a==r:
+    print(a," is a perfect number")
+else:
+    print(a," is not a perfect number")
+
+
+output:
+
+Enter a number: 6
+6  is a perfect number
+
+
+28.
+
+
+def mul_table(n):
+    print("The multiplication table of: ",n)
+    for i in range(1,11):
+        multiplication=n*i
+        print(n,"x",i,"=",multiplication)
+    
+a=eval(input("Enter a number: "))
+r=mul_table(a)
+
+
+
+output:
+
+Enter a number: 5
+The multiplication table of:  5
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+
+
+29.
+
+def print_tables(i,j):
+     multiplication=i*j
+     return multiplication
+for a in range(1,11):
+    print("The multiplication table of: ",a)
+    for b in range(1,11):
+        print(a,"x",b,"=",a*b)
+r=print_tables(a,b)
+    
+
+output:
+
+The multiplication table of:  1
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+1 x 4 = 4
+1 x 5 = 5
+1 x 6 = 6
+1 x 7 = 7
+1 x 8 = 8
+1 x 9 = 9
+1 x 10 = 10
+The multiplication table of:  2
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+2 x 8 = 16
+2 x 9 = 18
+2 x 10 = 20
+The multiplication table of:  3
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+3 x 5 = 15
+3 x 6 = 18
+3 x 7 = 21
+3 x 8 = 24
+3 x 9 = 27
+3 x 10 = 30
+The multiplication table of:  4
+4 x 1 = 4
+4 x 2 = 8
+4 x 3 = 12
+4 x 4 = 16
+4 x 5 = 20
+4 x 6 = 24
+4 x 7 = 28
+4 x 8 = 32
+4 x 9 = 36
+4 x 10 = 40
+The multiplication table of:  5
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+The multiplication table of:  6
+6 x 1 = 6
+6 x 2 = 12
+6 x 3 = 18
+6 x 4 = 24
+6 x 5 = 30
+6 x 6 = 36
+6 x 7 = 42
+6 x 8 = 48
+6 x 9 = 54
+6 x 10 = 60
+The multiplication table of:  7
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
+The multiplication table of:  8
+8 x 1 = 8
+8 x 2 = 16
+8 x 3 = 24
+8 x 4 = 32
+8 x 5 = 40
+8 x 6 = 48
+8 x 7 = 56
+8 x 8 = 64
+8 x 9 = 72
+8 x 10 = 80
+The multiplication table of:  9
+9 x 1 = 9
+9 x 2 = 18
+9 x 3 = 27
+9 x 4 = 36
+9 x 5 = 45
+9 x 6 = 54
+9 x 7 = 63
+9 x 8 = 72
+9 x 9 = 81
+9 x 10 = 90
+The multiplication table of:  10
+10 x 1 = 10
+10 x 2 = 20
+10 x 3 = 30
+10 x 4 = 40
+10 x 5 = 50
+10 x 6 = 60
+10 x 7 = 70
+10 x 8 = 80
+10 x 9 = 90
+10 x 10 = 100
+
+
+
+30.
+
+def power(n,p):
+    if p==0:
+        return 1
+    else:
+        return n*power(n,p-1)
+
+a=eval(input("Enter a number: "))
+b=eval(input("Enter a number: "))
+c=power(a,b)
+print(c)
+
+
+output:
+
+Enter a number: 5
+Enter a number: 3
+125
+
+
+31.
+
+
+def cout_digits(n):
+    if n>0:
+        d=n//10
+        count=1+cout_digits(d)
+    else:
+        return 0
+    return count
+a=eval(input("Enter a number: "))
+b=cout_digits(a)
+print("The number of digits in",a,"are",b)
+
+
+
+output:
+
+
+Enter a number: 12345
+The number of digits in 12345 are 5
+
+
+32.
+
+def sum_series(n):
+    if n==1:
+        return 1
+    else:
+        return n**5+sum_series(n-1)
+a=eval(input("Enter a number: "))
+if a>=1:
+    print("Sum of Series is: ",sum_series(a))
+else:
+    print("Please enter a positive number")
+    
+
+output:
+
+
+Enter a number: 3
+Sum of Series is:  276
+
+
+
+33.
+
+def fact_num(n):
+    if n==1:
+        return n
+    elif n==0:
+        return 1
+    else:
+        return n*fact_num(n-1)
+
+a=eval(input("Enter a number: "))
+b=fact_num(a)
+print("Factorial of",a,"is ",b)
+
+
+output:
+
+
+Enter a number: 4
+Factorial of 4 is  24
+
+
+35.
+
+def factors_num(n):
+    count=0
+    print("The factors of",n,"are")
+    for i in range(1,n+1):
+        if n%i==0:
+            print(i)
+            count+=1
+    if count==2:
+        print("The number",n,"is prime")
+    else:
+        print("The number",n,"is not a prime")
+a=eval(input("Enter a numbre: "))
+factors_num(a)
+
+
+
+output:
+
+Enter a numbre: 9
+The factors of 9 are
+1
+3
+9
+The number 9 is not a prime
+
+
+36.a)
+
+def fibonacci(n):
+    if n==0:
+        return 0
+    elif n==1 or n==2:
+        return 1
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+a=eval(input("Enter a number: "))
+print("Fibonacci series of",a,"is")
+for i in range(a):
+    print(fibonacci(i))
+
+
+output:
+
+Enter a number: 5
+Fibonacci series of 5 is
+0
+1
+1
+2
+3
+
+
+36.b)
+
+def fibonacci(n):
+    first,second=0,1
+    for i in range(n):
+        if i<2:
+            result=i
+        else:
+            result=first+second
+            first=second
+            second=result
+        print(result)
+a=eval(input("Enter a number: "))
+fibonacci(a)
+
+
+
+output:
+
+Enter a number: 4
+0
+1
+1
+2
+
+
+34.
+
+
+def Tow_Of_Hanoi(n,source,dest,middle):
+    if n<1:
+        print("please enter positive number to move")
+    elif n==1:
+        print("Move disk {} from {} to {}".format(n,source,dest))
+    else:
+        Tow_Of_Hanoi(n-1,source,middle,dest)
+        print("Move disk {} from {} to {}".format(n,source,dest))
+        Tow_Of_Hanoi(n-1,middle,dest,source)
+a=eval(input("Enter number of disks: "))
+Tow_Of_Hanoi(a,"A","C","B")
+
+
+output:
+
+
+Enter number of disks: 3
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+
+
+37.
+
+
+a=open("arun.txt","r")
+b=open("a.txt","a")
+data=a.read()
+c=data
+print(data)
+print(c)
+a.close()
+b.close()
+
+
+
+output:
+
+
+Welcome to world
+Welcome to world
+
+
+
+38.
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read()
+print(data)
+words=data.split()
+print("No.of words in file are: ",len(words))
+
+
+ouput:
+
+
+Enter the file name: arun.txt
+Welcome to world
+No.of words in file are:  3
+
+
+39.
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read()
+char_cout=0
+for char in data:
+    if char!=" ":
+        char_cout+=1
+print("The number of characters in the file are: ",char_cout)
+
+
+output:
+
+Enter the file name: arun.txt
+The number of characters in the file are:  14
+
+
+
+40.
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read()
+v_cout=0
+c_cout=0
+vowels = ['a','e','i','o','u','A','E','i','O','U']
+for char in data:
+    if char in vowels:
+        v_cout+=1
+        
+    elif char!=" ":
+        c_cout+=1
+print("The no.of vowels in file are: ",v_cout)
+print("The no.of consonants in file are: ",c_cout)
+b.close()
+        
+
+
+output:
+
+Enter the file name: arun.txt
+The no.of vowels in file are:  5
+The no.of consonants in file are:  9
+         
+                 (OR)
+
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read().replace(" ","").lower()
+v_cout=0
+c_cout=0
+l=['a','e','i','o','u']
+for ch in data:
+    if ch in l:
+        v_cout+=1
+    else:
+        c_cout+=1
+print("The no.of vowels in the file are: ",v_cout)
+print("The no.of consonants in the file are: ",c_cout)
+b.close()
+
+
+output:
+
+Enter the file name: arun.txt
+The no.of vowels in the file are:  5
+The no.of consonants in the file are:  9
+
+
+
+
+41.
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read()
+char=input("Enter a character: ")
+char_cout=0
+for i in data:
+    if i==char:
+        char_cout+=1
+print("The character {} is appeared {} times in the file".format(char,char_cout))
+
+
+output:
+
+Enter the file name: arun.txt
+Enter a character: o
+The character o is appeared 3 times in the file
+ 
+                                 (OR)
+
+
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read().replace(" ","")
+d={}
+for char in data:
+    if char in d:
+        d[char]+=1
+
+    else:
+        d[char]=1
+print(d)
+
+
+
+output:
+
+Enter the file name: arun.txt
+{'W': 1, 'e': 2, 'l': 2, 'c': 1, 'o': 3, 'm': 1, 't': 1, 'w': 1, 'r': 1, 'd': 1}
+
+
+54.
+
+s=input("Enter any string: ")
+s1=s.lower()
+
+
+count=0
+for i in s1:
+    if(i=='a' or i=='e' or i=='i' or i=='o' or i=='u'):
+        count+=1
+
+print(count)
+
+
+output:
+Enter any string: arunkumar
+4
+
+
+55.
+
+s=str(input("Enter your string: "))
+count=0
+for i in range(0,len(s)-2):
+    if s[i]=='b' and s[i+1]=='o' and s[i+2]=='b':
+        count=count+1
+print(count)
+
+output:
+
+Enter your string: bobaadgdgqoboobob
+2
+
+
+
+56.
+
+s=str(input("Enter your string: "))
+c=str(input("Enter your character: "))
+index=-1
+for i in range(0,len(s)):
+    if s[i]==c:
+        index=i
+        break
+print(index)
+
+output:
+Enter your string: arunkumar
+Enter your character: u
+2
+
+
+57.
+
+s=str(input("Enter your string: "))
+c=str(input("Enter your character: "))
+count=0
+for i in range(0,len(s)):
+    if s[i]==c:
+        count=count+1
+print(count) 
+
+output:
+
+Enter your string: arunkumar
+Enter your character: a
+2
+
+58.
+
+a=input("Enter a string: ")
+b=a.split()
+d={}
+for i in b:
+    d[i]=len(i)
+print(d)
+
+
+output:
+
+Enter a string: arun kumar
+['arun', 'kumar']
+{'arun': 4, 'kumar': 5}
+
+
+59.
+
+str1=input("Enter a string: ")
+str2=str1.lower()
+a1=["a","e","i","o","u"]
+v_cout=0
+s_cout=0
+for i in str2:
+    if i in a1:
+        v_cout+=1
+print("The no.of vowels in string are: ",v_cout)
+a2=str1.split()
+print("The no.of spaces in given string are: ",len(a2)-1)
+g=""
+for i in a2:
+    if len(i)>=len(g):
+        g=i
+print("The longest word in string is: ",g)
+
+
+output:
+Enter a string: arun Kumar
+The no.of vowels are:  4
+The no.of spaces are:  1
+Kumar
+
+60.
+
+a=input("Enter a string: ")
+reverse_string=" "
+for i in range(len(a)-1,-1,-1):
+    reverse_string+=a[i]
+print(reverse_string)
+
+
+output:
+Enter a string: arunkumar
+ ramuknura
+
+
+42.
+
+a=eval(input("Enter a number: "))
+l=[]
+b=str(a)
+for i in b:
+    l.append(int(i))
+print(l)
+
+
+output:
+Enter a number: 5467
+[5, 4, 6, 7]
+
+
+43.
+
+a=eval(input("Enter any list: "))
+s=""
+for i in a:
+    s+=str(i)
+print(int(s))
+
+output:
+Enter any list: [5,4,6,7]
+5467
+
+44.
+
+a=list(input("Enter the values in list: "))
+a.sort()
+length=len(a)
+print(a[0])
+print(a[1])
+print(a[-1])
+print(a[-2])
+
+
+output:
+
+Enter the values in list: 23463474826596242
+2
+9
+8
+
+45.
+
+d={}
+k=1
+flag=None
+for i in range(2,101):
+    flag=0
+    for j in range(2,i):
+        if(i%j==0):
+            flag=1
+            break
+    if(flag==0):
+        d[k]=i
+        k+=1
+print(d)
+
+
+output:
+
+{1: 2, 2: 3, 3: 5, 4: 7, 5: 11, 6: 13, 7: 17, 8: 19, 9: 23, 10: 29, 11: 31, 12: 37, 13: 41, 14: 43, 15: 47, 16: 53, 17: 59, 18: 61, 19: 67, 20: 71, 21: 73, 22: 79, 23: 83, 24: 89, 25: 97}
+
+
+46.
+
+d1={1:2,2:9,3:45,4:32,5:89,6:0,7:-7,8:67,9:125,10:40}
+print(max(d1.values()))
+print(min(d1.values()))
+
+
+output:
+
+125
+-7
+
+
+48.
+
+d={}
+n=int(input("Enter any numbers: "))
+for i in range(1,n+1):
+    d[i]=i**2
+print(d)
+
+
+output:
+
+Enter any numbers: 5
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+
+49.
+
+a=eval(input("Enter any list: "))
+s=""
+for i in a:
+    s+=str(i)
+print(s)
+
+
+output:
+
+Enter any list: ['s','t','r','i','n','g','s']
+strings
+
+
+50.
+
+d1={'a':10,'b':20,'c':30}
+d2={'a':30,'b':20,'d':40}
+for i in d1:
+    if i in d2:
+        d1[i]=d1[i]+d2[i]
+for i in d2:
+    if i not in d1:
+        d1[i]=d2[i]
+print(d1)
+
+
+output:
+
+{'a': 40, 'b': 40, 'c': 30, 'd': 40}
+
+
+51.
+
+a=eval(input("Enter a list: "))
+char=eval(input("Enter a character: "))
+sum=0
+for i in range(len(a)):
+    if a[i]==char:
+        print(i)
+        sum+=1
+print("The no.of times", char,"repeated in list is: ",sum)
+
+
+output:
+
+
+Enter a list: [2,4,3,2,6,5,1,7,4,8]
+Enter a character: 8
+9
+The no.of times 8 repeated in list is:  1
+
+
+52.
+
+a1=eval(input("Enter a list: "))
+a2=list(set(a1))
+print(a2)
+
+output:
+
+Enter a list: [1,4,6,8,2,3,7,7,2,1,5,6,8]
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+53.
+
+a=list(range(1,11))
+print(a)
+for i in a:
+    if i%2!=0:
+        a.remove(i)
+print(a)
+
+
+output:
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[2, 4, 6, 8, 10]
+
+
+65.
+
+
+class Student:
+    def __marks__(self,id,Name,mid1_marks,mid2_marks,quiz_marks):
+        self.id=id
+        self.Name=Name
+        self.mid1_marks=mid1_marks
+        self.mid2_marks=mid2_marks
+        self.quiz_marks=quiz_marks
+    def marksList(self):
+        print("ROLL NUMBER: ",self.id)
+        print("NAME: ",self.Name)
+        if mid1_marks>=0 and mid1_marks<=25:
+            print("MID1:",self.mid1_marks)
+        else:
+            print("Error")
+        if mid2_marks>=0 and mid2_marks<=25:
+            print("MID2:",self.mid2_marks)
+        else:
+            print("Error")
+        if quiz_marks>=0 and quiz_marks<=50:
+            print("QUIZ:",self.quiz_marks)
+        else:
+            print("Error")
+        TOTAL=self.mid1_marks+self.mid2_marks+self.quiz_marks
+        print("TOTAL:",TOTAL)
+        if TOTAL>=80:
+            print("A GRADE")
+        elif TOTAl<80 and TOTAL>=60:
+            print("B GRADE")
+        elif TOTAL>=50 and TOTAL<60:
+            print("C GRADE")
+    
+
+a=Student(970,"Arun",23,26,40)
+a.markList()

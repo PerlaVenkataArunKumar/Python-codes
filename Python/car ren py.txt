@@ -1,0 +1,102 @@
+def functions(n):
+    if n==1:
+        su=0
+        print("\nFirst of all, Thank you for being member in our company")
+        us=input("Enter Username:")
+        pas=input("Enter password:")
+        if us in acc.keys():
+            pa=acc[us]
+            if pa==pas:
+                print("Welcome to our company")
+            else:
+                print("username is correct but, Password is wrong.")
+                print("Free tip: U have an wonderful option in our company i.e., Forgot password.")
+                print("          U can freely access it no amount is charged for that, Enjoy")
+        else:
+            print("\nFeeling sad, ur not part of this company but u can create one Go Create!")
+        
+        print("------Wanna book a rental Car-------")
+        print("1. BMW ------ 10,000/hr")
+        print("2. MG ------ 5,000/hr")
+        print("3. Range ROver ------ 30,000/hr")
+        print("pic one from the list:")
+        pick=int(input())
+        if pick==1:
+            amt=int(input("\nEnter the amount 10,000: "))
+            if amt==10000:
+                car.update({us:'BMW'})
+                print("\nYour car is booked")
+            if amt<10000:
+                print("\nEntered amount is lesser than what we excepted")
+            if amt>10000:
+                su=amt-10000
+                car.update({us:'BMW'})
+                print("Heres your change: \n",su)
+                print("\nYour car is booked")
+        if pick==2:
+            amt=int(input("\nEnter the amount 5,000: "))
+            if amt==5000:
+                car.update({us:'MG'})
+                print("\nYour car is booked")
+            if amt<5000:
+                print("\nEntered amount is lesser than what we excepted")
+            if amt>5000:
+                su=amt-5000
+                car.update({us:'MG'})
+                print("Heres your change: \n",su)
+                print("\nYour car is booked")
+        if pick==3:
+            amt=int(input("\nEnter the amount 30,000: "))
+            if amt==30000:
+                car.update({us:'Range Rover'})
+                print("\nYour car is booked")
+            if amt<30000:
+                print("\nEntered amount is lesser than what we excepted")
+            if amt>30000:
+                su=amt-30000
+                car.update({us:'Range Rover'})
+                print("Heres your change: \n",su)
+                print("\nYour car is booked")
+    if n==2:
+        username = input("\nCreate username: ")
+        password = input("Create Password: ")
+        acc.update({username:password})
+        print('\nCongratulations, Your account has been created in our company')
+    if n==3:
+        user=input("\nEnter you username to find your password:")
+        if user in acc.keys():
+            usern=acc[user]
+            print("\nHere's your password coming....")
+            print("\n----->",usern)
+        else:
+            print("\nAccount is not found")
+    if n==4:
+        print("\nI guess ur making wrong choice, but i respect ur choice")
+        ke=input("\nEnter the username to delete booked car")
+        if ke in acc.keys():
+            del acc[ke]
+            print("\n\033[0;33mYour car appointment is cancelled")
+        else:
+            print("Sry for our inconvience")
+    if n==5:
+        secret_file = open('cardetails.txt', 'wt') 
+        secret_file.write(str(car)) 
+        secret_file.close()
+        print("Your details are secured in our company")
+        
+acc={}
+car={}
+print("1. Login to account")
+print("2. New user sign up for account")
+print("3. Forgot Password")
+print("4. Delete car rental")
+print("5. Save in a file")
+n=int(input("\nEnter the operations you want to perform with your account:"))
+functions(n)
+while(1):
+    option=input("\nDo u wanna see more details then press any key other than 'q':").lower()
+    if option=='q':
+        break
+    else:
+        n=int(input("\nEnter the operations you want to perform with your account:"))
+        functions(n)

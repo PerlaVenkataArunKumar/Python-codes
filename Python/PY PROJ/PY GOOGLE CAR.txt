@@ -1,0 +1,500 @@
+Hey there. Hope you're doing fine. The following program works according to your requirement.
+
+Program:
+
+cars = {}
+
+rentals = {}
+
+ 
+
+def read_data():
+
+    global cars
+
+    global rentals
+
+ 
+
+    with open("cars.txt") as f:
+
+        raw_data = f.read().split('\n')
+
+        for entry in raw_data[1:]:
+
+            if(entry!=''):
+
+                tokens = entry.split('\t')
+
+                temp = tokens[1:]
+
+                cars[tokens[0]] = temp
+
+ 
+
+    with open("rentals.txt") as f:
+
+        raw_data = f.read().split('\n')
+
+        for entry in raw_data[1:]:
+
+            if(entry!=''):
+
+                tokens = entry.split('\t')
+
+                temp = tokens[1:]
+
+                rentals[tokens[0]] = temp
+
+   
+
+
+ 
+
+def write_data():
+
+ 
+
+    global cars
+
+ 
+
+    with open("cars.txt","w") as f:
+
+        f.write("Car ID"+'\t'+"Brand"+'\t'+"Year Made"+'\t'+"Type"+'\t'+"Daily Cost"+'\t'+"Milage"+'\t'+"Status"+'\n')
+
+        line = ""
+
+        carlist = [*cars]
+
+        for car in carlist:
+
+            curr = cars[car]
+
+            line = car +'\t'+ str(curr[0]) +'\t'+ str(curr[1]) +'\t'+ str(curr[2]) +'\t'+ str(curr[3]) +'\t'+ str(curr[4]) +'\t'+ str(curr[5])
+
+ 
+
+            f.write(line+"\n")
+
+ 
+
+    with open("rentals.txt","w") as f:
+
+        f.write("Rent ID"+'\t'+"Customer ID"+'\t'+"Customer Name"+'\t'+"Car ID"+'\t'+"Rent Type"+'\t'+"Rent Type Unit"+'\t'+"Rent days"+'\t'+"Daily Cost"+'\t'+"Trip Milage"+'\t'+"Total Cost"+'\n')
+
+        line = ""
+
+        rentallist = [*rentals]
+
+        for rental in rentallist:
+
+            curr = rentals[rental]
+
+            line = rental +'\t'+ str(curr[0]) +'\t'+ str(curr[1]) +'\t'+ str(curr[2]) +'\t'+ str(curr[3]) +'\t'+ str(curr[4]) +'\t'+ str(curr[5]) +'\t'+ str(curr[6]) +'\t'+ str(curr[7]) +'\t'+ str(curr[8])
+
+ 
+
+            f.write(line+"\n")
+
+ 
+
+def add_car():
+
+    global cars
+
+    carlist =  [*cars]
+
+    err = False
+
+ 
+
+    car_id = input("\ncar id:")
+
+    brand = input("brand:")
+
+    year = input("year made:")
+
+    car_type = input("type:")
+
+    cost = input("daily cost:")
+
+    milage = input("milage:")
+
+    status = input("status:")
+
+ 
+
+    if(car_id in carlist or not year.isnumeric() or not cost.isnumeric() or not milage.isnumeric()):
+
+        err = True
+
+    
+
+    if(err):
+
+        print("\nError!")
+
+    else:
+
+        temp = [brand, year, car_type, cost, milage, status]
+
+        cars[car_id] = temp
+
+        write_data()
+
+        print("\nEntry added!")
+
+ 
+
+def rent_car():
+
+    global rentals
+
+    global cars
+
+ 
+
+    rentallist =  [*rentals]
+
+    carlist = [*cars]
+
+    err = False
+
+ 
+
+    rental_id = len(rentallist)+1
+
+    customer_id = input("\ncustomer id:")
+
+    customer_name = input("customer name:")
+
+    car_id = input("car id:")
+
+    rent_type = input("rent type:")
+
+    rent_type_unit = input("rent type unit:")
+
+ 
+
+    if(car_id not in carlist or cars[car_id][5] != "Available" or not rent_type_unit.isnumeric() or rent_type not in ['daily', 'weekly', 'monthly']):
+
+        err = True
+
+    
+
+    if(err):
+
+        print("\nError!")
+
+    else:
+
+        daily_cost = cars[car_id][4]
+
+        if(rent_type == "daily"):
+
+            rent_days = int(rent_type_unit)
+
+        elif(rent_type == "weekly"):
+
+            rent_days = int(rent_type_unit) * 7
+
+        elif(rent_type == "monthly"):
+
+            rent_days = int(rent_type_unit) * 30
+
+        temp = [customer_id, customer_name, car_id, rent_type, rent_type_unit, rent_days, daily_cost, 0, 0]
+
+        rentals[rental_id] = temp
+
+        cars[car_id][5] = "Not Available"
+
+        print("\nEntry added! Rental ID: "+rental_id)
+
+ 
+
+def return_car():
+
+    global cars
+
+    global rentals
+
+  
+
+    rentallist =  [*rentals]
+
+    err = False
+
+ 
+
+    rental_id = input("\nrental id:")
+
+    trip_milage = input("trip milage:")
+
+ 
+
+    if(rental_id not in rentallist):
+
+        err = True
+
+ 
+
+    if(err):
+
+        print("\nError!")
+
+    else:
+
+        curr = rentals[rental_id]
+
+        if(curr[3] == "weekly"):
+
+            discount = 0.05
+
+        elif(curr[3] == "monthly"):
+
+            discount = 0.1
+
+        total_cost = (1 - discount) * (int(curr[5]) * int(curr[6]))
+
+        rentals[rental_id][8] = total_cost
+
+        rentals[rental_id][7] = trip_milage + " KM"
+
+        cars[curr[2]][5] = "Available"
+
+        cars[curr[2]][4] = int(cars[curr[2]][4]) + int(trip_milage)
+
+        print("\nEntry Updated!")
+
+        write_data()
+
+ 
+
+def display_available():
+
+    global cars
+
+    carlist = [*cars]
+
+ 
+
+    count = 0
+
+    for car in carlist:
+
+        if(cars[car][5] == "Available"):
+
+            count +=1
+
+            curr = cars[car]
+
+            print("\nCar ID: "+car+'\n'+"Brand: "+curr[0]+'\n'+"Year Made: "+curr[1]+'\n'+"Type: "+curr[2]+'\n'+"Daily Cost: "+curr[3]+'\n'+"Milage: "+curr[4]+'\n')
+
+    print(str(count)+" cars available!")
+
+ 
+
+def display_car():
+
+    global cars
+
+    carlist = [*cars]
+
+ 
+
+    car = input("\nEnter car id:")
+
+    if(car in carlist):
+
+        curr = cars[car]
+
+        print("\nCar ID: "+car+'\n'+"Brand: "+curr[0]+'\n'+"Year Made: "+curr[1]+'\n'+"Type: "+curr[2]+'\n'+"Daily Cost: "+curr[3]+'\n'+"Milage: "+curr[4]+'\n'+"Available: "+curr[5]+'\n')
+
+ 
+
+def display_brand():
+
+    global cars
+
+    carlist = [*cars]
+
+ 
+
+    brand = input("\nEnter car brand:")
+
+    for car in carlist:
+
+        if(cars[car][0] == brand):
+
+            curr = cars[car]
+
+            print("\nCar ID: "+car+'\n'+"Brand: "+curr[0]+'\n'+"Year Made: "+curr[1]+'\n'+"Type: "+curr[2]+'\n'+"Daily Cost: "+curr[3]+'\n'+"Milage: "+curr[4]+'\n'+"Available: "+curr[5]+'\n')
+
+ 
+
+def display_top():
+
+    global rentals
+
+    global cars
+
+    carlist = [*cars]
+
+    rentallist = [*rentals]
+
+ 
+
+    ranking = {}
+
+ 
+
+    for car in carlist:
+
+        temp = 0
+
+        for rental in rentallist:
+
+            if(rentals[rental][2] == car):
+
+                temp += int(rentals[rental][5])
+
+        ranking[car] = temp
+
+ 
+
+    ranking = sorted(ranking.items(), key=lambda x: x[1], reverse=True)
+
+    count = 0
+
+    for rank in ranking:
+
+        if(count<10):
+
+            print(rank[0])
+
+            curr = cars[rank[0]]
+
+            dis = rank[1]
+
+            print("\nCar ID: "+car+'\n'+"Brand: "+curr[0]+'\n'+"Year Made: "+curr[1]+'\n'+"Type: "+curr[2]+'\n'+"Daily Cost: "+curr[3]+'\n'+"Milage: "+curr[4]+'\n'+"Available: "+curr[5]+'\n'+"Days rented: "+str(dis)+"\n")
+
+        count+=1
+
+ 
+
+def main():
+
+    read_data()
+
+    run = True
+
+    while(run):
+
+        ip = input("\n1.Add a Car\n2.Rent Car\n3.Return Car\n4.Display available cars\n5.Display Specific Car\n6.Display by Brand\n7.Display Top 10\n8.Exit\nChoice:")
+
+        if(ip == '1'):
+
+            add_car()
+
+        elif(ip == '2'):
+
+            rent_car()
+
+        elif(ip == '3'):
+
+            return_car()
+
+        elif(ip == '4'):
+
+            display_available()
+
+        elif(ip == '5'):
+
+            display_car()
+
+        elif(ip == '6'):
+
+            display_brand()
+
+        elif(ip == '7'):
+
+            display_top()
+
+        elif(ip == '8'):
+
+            run = False
+
+    
+
+ 
+
+main()
+
+ 
+
+Input: 
+
+Cars.txt:
+
+Car ID    Brand    Year Made    Type    Daily Cost    Milage    Status
+10010    BMW    2018    Small  Sedan    450    74589    Available
+10012    BMW    2018    Small  Sedan    450    74589    Available
+10013    BMW    2018    Small  Sedan    450    74589    Available
+10014    BMW    2018    Small  Sedan    450    74589    Available
+10015    BMW    2018    Small  Sedan    450    74589    Available
+10016    Audi    2020    Convertible    400    373    Not Available
+ 
+
+Rentals.txt:
+
+Rent ID    Customer ID    Customer Name    Car ID    Rent Type    Rent Type Unit    Rent days    Daily Cost    Trip Milage    Total Cost
+67156    123452341    Fares Ahmad    10012    weekly    2    14    450    1400 KM    5985
+67122    123132241    Fares Ahmad    10013    weekly    2    14    450    1400 KM    5985
+67128    123412641    Fares Ahmad    10014    weekly    2    14    450    1400 KM    5985
+67173    123472341    Fares Ahmad    10015    weekly    2    14    450    1400 KM    5985
+67163    123492341    Fares Ahmad    10016    weekly    2    14    450    122 KM    5985.0
+67153    123482341    Fares Ahmad    10010    weekly    2    14    450    1400 KM    5985
+67143    123412041    Fares Ahmad    10012    weekly    2    14    450    1400 KM    5985
+ 
+
+IO:
+
+1.Add a Car
+2.Rent Car
+3.Return Car
+4.Display available cars
+5.Display Specific Car
+6.Display by Brand
+7.Display Top 10
+8.Exit
+Choice:1
+
+
+car id:123
+brand:asd
+year made:123
+type:asd
+daily cost:123
+milage:123
+status:Available
+
+
+Entry added!
+
+
+1.Add a Car
+2.Rent Car
+3.Return Car
+4.Display available cars
+5.Display Specific Car
+6.Display by Brand
+7.Display Top 10
+8.Exit
+Choice:8
+
+ 
+
+NB: While this is a big program, it is quite self explanatory. Make sure to separate entry in Cars and rentals by a tabspace as the program splits from tabs.
+
+Hope this helps. Have a nice day!

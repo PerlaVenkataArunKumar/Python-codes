@@ -1,0 +1,13 @@
+1. How to get a middle node of a single linked list
+2. How to get kth node from end of a singlr linked list
+3. Merge two sorted linked list in sorted order
+4. Solve 3rd problem without creating 3rd linked list
+5. Clown a linked list
+6. Detect wheather linked list contains a cycle(loop)
+7. If cycle(loop) existed then find the lenght of the cycle(loop)
+8. If cycle(loop) existed in the linked list the find the starting point of the cycle(loop)
+9. Find the mearging point of two linked lists
+10. To reverse every pair of nodes in linked list
+11. TO reverse every k no's nodes in linked list
+
+

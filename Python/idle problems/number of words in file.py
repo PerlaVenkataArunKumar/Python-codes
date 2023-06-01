@@ -1,0 +1,6 @@
+a=input("Enter the file name: ")
+b=open(a,"r")
+data=b.read()
+print(data)
+words=data.split()
+print("No.of words in file are: ",len(words))

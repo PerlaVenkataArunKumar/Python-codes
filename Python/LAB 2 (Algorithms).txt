@@ -1,0 +1,62 @@
+1. Write a program for the summation of given GP series.
+
+
+ CODE:
+
+       #include<iostream>
+       #include<math.h>
+       using namespace std;
+
+       int main()
+       {
+           int X,N,Sum = 0; //'X' is the value of integer  //'N' refers to number of values we consider
+           int i;
+           cout<<"Enter the Values of X\n";
+           cout<<"Enter the Values of N\n";
+           cin>>X>>N;
+           for(i=0;i<=N;i++)
+           {
+              Sum = Sum +pow(X,i);
+              cout<<Sum<<" ";
+           }
+           cout<<"\nThe Sum of series "<<Sum;
+           return 0;
+       }
+
+
+
+2. Write a program to find kth smallest element in the array.
+
+
+ CODE:
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int n,i,j,k,temp;
+    scanf("%d",&n);
+    int arr[n];
+    
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&k);
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]>arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    printf("kth smallest element is : %d",arr[k-1]);
+    return 0;
+}
+
